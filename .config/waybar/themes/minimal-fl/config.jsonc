@@ -1,0 +1,91 @@
+{
+   "layer": "top",
+   "margin-top": 5,
+   "modules-left": [
+      "clock",
+      "hyprland/window"
+   ],
+   "modules-center": [
+      "hyprland/workspaces"
+   ],
+   "modules-right": [
+      "network",
+      "cpu",
+      "memory",
+      "pulseaudio",
+      "tray",
+      "custom/notification",
+      "custom/power"
+   ],
+   "clock": {
+      "format-alt": "{:%a, %d. %b  %H:%M}"
+   },
+   "hyprland/workspaces": {
+      "format": "{name}",
+      "persistent-workspaces": {
+         "*": 6,
+      }
+   },
+   "hyprland/window": {
+      "format": " {}",
+      "max-length": 20,
+      "separate-outputs": true
+   },
+   "tray": {
+      "icon-size": 21,
+      "spacing": 10
+   },
+   "pulseaudio": {
+      "format": "{icon}",
+      "format-bluetooth": "{volume}% {icon} {format_source}",
+      "format-bluetooth-muted": " {icon} {format_source}",
+      "format-muted": " 󰖁 ",
+      "format-icons": {
+         "default": [
+            "",
+            " ",
+            " "
+         ]
+      },
+      "tooltip-format": "{volume}% volume",
+      "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+      "on-click-right": "pavucontrol"
+   },
+   "network": {
+      "format-ethernet": "   ",
+      "format-wifi": "   ",
+      "format-disconnected": " 󰖪  ",
+      "tooltip-format": "Connected to {ipaddr}",
+      "tooltip-format-wifi": "Connected to {essid}",
+      "on-click": "hyprctl dispatch exec '[float]''kitty -e nmtui'",
+      "format-linked": "{ifname} (No IP) "
+   },
+   "cpu": {
+      "interval": 10,
+      "format": "CPU: {usage}%",
+      "on-click": "kitty -e btop"
+   },
+   "memory": {
+      "interval": 30,
+      "format": "MEM: {used} GiB",
+      "on-click": "kitty -e btop"
+   },
+   "custom/power": {
+      "format": "⏻",
+      "tooltip": false,
+      "on-click": "wlogout"
+   },
+   "custom/notification": {
+      "escape": true,
+      "exec": "swaync-client -swb",
+      "exec-if": "which swaync-client",
+      "format": "{icon}",
+      "format-icons": {
+         "none": "󰅺",
+         "notification": "󰡟"
+      },
+      "on-click": "sleep 0.1; swaync-client -t -sw",
+      "return-type": "json",
+      "tooltip": false
+   }
+}

@@ -1,0 +1,16 @@
+#!/bin/zsh
+
+OUTDIR="$HOME/Music/mpd"
+
+mkdir -p "$OUTDIR"
+
+yt-dlp \
+  -x \
+  --embed-thumbnail \
+  --embed-metadata \
+  -f bestaudio \
+  --convert-thumbnails jpg \
+  -o "$OUTDIR/%(title)s.%(ext)s" \
+  "$1"
+
+mpc update

@@ -1,0 +1,131 @@
+// -*- mode: jsonc -*-
+{
+    "layer": "top", // Waybar at top layer
+    // "position": "bottom", // Waybar position (top|bottom|left|right)
+    "height": 30, // Waybar height (to be removed for auto height)
+    // "width": 1280, // Waybar width
+    "spacing": 4, // Gaps between modules (4px)
+    // Choose the order of the modules
+    "modules-left": [
+	"custom/logo",
+        "hyprland/workspaces",
+        "hyprland/submap",
+        "hyprland/window"
+    ],
+    "modules-center": [
+        "custom/pacman"
+    ],
+    "modules-right": [
+        "pulseaudio",
+        "network",
+        "memory",
+        "clock",
+        "tray",
+	"custom/notification",
+        "custom/power"
+    ],
+    // Modules configuration
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "format": "{icon}",
+        "format-icons": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": "",
+            "urgent": ""
+       }
+    },
+    "custom/logo": {
+    "format": "   ",
+    "tooltip": false,
+    "on-click": "pkill rofi || rofi -show drun -show-icons"
+    },
+    "custom/pacman": {
+       "format": "{icon}{0}",
+       "return-type": "json",
+       "format-icons": {
+       "pending-updates": " ",
+       "updated": " "
+     },
+       "exec-if": "which waybar-updates",
+       "exec": "waybar-updates"
+    },
+    "tray": {
+        "icon-size": 21,
+        "spacing": 10
+    },
+    "clock": {
+      "format": "{:%H:%M}",
+      "format-alt": "{:%A, %B %d, %Y}",
+      "tooltip-format": "<tt><small>{calendar}</small></tt>",
+      "calendar": {
+          "mode"          : "month",
+          "mode-mon-col"  : 3,
+          "weeks-pos"     : "right",
+          "on-scroll"     : 1,
+          "format": {
+                    "months":     "<span color='#ffead3'><b>{}</b></span>",
+                    "today":      "<span color='#ff6699'><b>{}</b></span>",
+                    "weeks":      "<span color='#99ffdd'><b>W{}</b></span>"
+          }
+        }
+    },
+    "memory": {
+        "format": "{}% ",
+        "on-click": "kitty -e btop"
+    },
+    "power-profiles-daemon": {
+      "format": "{icon}",
+      "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+      "tooltip": true,
+      "format-icons": {
+        "default": "",
+        "performance": "",
+        "balanced": "",
+        "power-saver": ""
+      }
+    },
+    "network": {
+	"format-ethernet":"   ",
+        "format-wifi":"   ",
+        "format-disconnected":" 󰖪  ",
+        "tooltip-format":"Connected to {ipaddr}",
+        "tooltip-format-wifi":"Connected to {essid}",
+        "on-click":"hyprctl dispatch exec '[float]''kitty -e nmtui'",
+        "format-linked":"{ifname} (No IP) "
+    },
+    "pulseaudio": {
+	"format": "{icon}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " 󰖁 ",
+        "format-icons": {
+            "default": ["", "", ""]
+        },
+        "tooltip-format": "{volume}% volume",
+        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-click-right": "pavucontrol"
+    },
+    "custom/power": {
+	"format" : "  ⏻  ",
+	"tooltip": false,
+        "on-click": "wlogout"
+    },
+    "custom/notification": {
+    "escape": true,
+    "exec": "swaync-client -swb",
+    "exec-if": "which swaync-client",
+    "format": "{icon}",
+    "format-icons": {
+      "none": "  󰅺   ",
+      "notification": "  󰡟   "
+    },
+    "on-click": "sleep 0.1; swaync-client -t -sw",
+    "return-type": "json",
+    "tooltip": false
+  }
+    
+}

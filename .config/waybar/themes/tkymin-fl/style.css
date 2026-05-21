@@ -1,0 +1,136 @@
+@import "/home/floki/.config/waybar/colors/tokyo-night.css";
+
+* {
+    border: none;
+    border-radius: 0px;
+    font-family: "SF Pro Display", "JetBrainsMono Nerd Font Propo";
+    padding: 0;
+    margin: 0;
+    min-width: 10px;
+}
+
+window#waybar {
+    background-color: alpha(@bg0, 0.8);
+}
+
+tooltip {
+    background: transparent;
+    border: 1px solid @blue;
+    border-radius: 12px;
+}
+
+tooltip label {
+    color: @fg;
+}
+
+#workspaces {
+    min-width: 0;
+    margin: 20px;
+    transition: all 0.3s ease-in-out;  
+}
+
+#workspaces button {
+    color: transparent;
+    background: linear-gradient(180deg, @grey0 0%, @bg1 100%);
+    transition: all 0.3s ease-in-out;
+    min-width: 0;
+    margin: 5px 0;
+    border-radius: 3px;
+}
+
+#workspaces button.active {
+    background: linear-gradient(180deg, @blue 0%, @purple 100%);
+    color: transparent;
+    transition: all 0.3s ease-in-out;
+    font-size: 13px;
+    border-radius: 9999px;
+    min-height: 80px;
+}
+
+#workspaces button:hover {
+    background: linear-gradient(180deg, @purple 0%, @blue 100%);
+    color: transparent;
+    border-radius: 16px;
+    background-size: 400% 400%;
+    transition: all 0.3s ease-in-out;
+}
+
+#workspaces button.urgent {
+    background: linear-gradient(180deg, @red 0%, @orange 100%);
+    color: transparent;
+    border-radius: 16px;
+    background-size: 400% 400%;
+    transition: all 0.3s ease-in-out;
+}
+
+#pulseaudio,
+#network,
+#memory,
+#custom-power {
+    background-color: alpha(@bg0, 0.5);
+    margin: 10px;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+#pulseaudio-slider {
+    padding: 0;
+    margin: 15px 0; 
+}
+
+#pulseaudio-slider slider {
+    border-radius: 2px;
+}
+
+#pulseaudio-slider trough {
+    min-height: 150px;
+    border-radius: 5px;
+}
+
+#pulseaudio-slider higlight {
+    border-radius: 5px;
+}
+
+.misc-modules {
+    font-size: 15px;
+}
+
+#custom-separator {
+    margin-top: 5px;
+    font-size: 20px;
+}	
+
+#clock {
+    color: @blue;
+    font-family: "PP Neue Machina";
+    font-weight: 600;
+    font-size: 28px;
+    margin: 15px 5px 0 5px;
+}
+
+#custom-notification {
+    color: @fg;
+    margin: 10px;
+}
+
+#power-profiles-daemon {
+    color: @fg;
+    margin:10px;
+}
+
+#pulseaudio {
+    color: @yellow;
+}
+
+#network {
+    color: @purple;
+}
+
+#memory {
+    color: @green;
+}
+
+#custom-power {
+    color: @red;
+}
+

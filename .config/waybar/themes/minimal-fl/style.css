@@ -1,0 +1,113 @@
+@import "colors.css";
+
+* {
+    border: none;
+    font-family: "SF Pro Display", "Font Awesome", Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+window#waybar {
+    background: transparent;
+    color: @on_surface;
+}
+
+.modules-left,
+.modules-right {
+    margin: 0 10px;
+}    
+
+tooltip {
+  background: @background;
+  border: 1px solid rgba(100, 114, 125, 0.5);
+}
+tooltip label {
+  color: @on_surface;
+}
+
+#workspaces {
+    margin: 0 10px;
+    background-color: transparent;
+    transition: all 200ms ease-in-out;
+}
+
+#workspaces button {
+    background-color: @secondary;
+    padding: 0 7px;
+    margin: 0 2px;
+    border-radius: 5px;
+}
+
+#workspaces button.active {
+    background-color: @inverse_primary;
+    color: @on_surface;
+    padding: 0 15px;
+    border-radius: 100px;
+    transition: all 250ms ease-in-out;
+    font-weight: 700;
+}
+
+#workspaces button:hover {
+    color: @background;
+}
+
+#clock,
+#network,
+#cpu,
+#memory,
+#pulseaudio,
+#tray,
+#custom-notification,
+#custom-power {
+    border-radius: 100px;
+    background-color: @primary;
+    color: #121212;
+    margin: 0 5px;
+    padding: 0 15px;
+}
+
+#window {
+    margin: 0 5px;
+}
+
+#clock {
+    padding: 0 7px;
+    font-weight: 700;
+}
+
+#pulseaudio {
+    padding: 0 7px;
+    font-weight: 700;
+}
+
+#cpu {
+    padding: 0 7px;
+    font-weight: 700;
+}
+
+#memory {
+    padding: 0 7px;
+    font-weight: 700;
+}
+
+#network {
+    padding: 0 7px;
+    font-weight: 700;
+}
+
+#tray {
+    padding: 0 7px;
+    font-weight: 700;
+}
+
+#custom-notification {
+    padding: 0 7px;
+    font-weight: 700;
+}
+
+#custom-power {
+    padding: 0 7px;
+    font-weight: 700;
+}

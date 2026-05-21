@@ -1,0 +1,113 @@
+@import url("/home/floki/.cache/wal/colors-waybar.css");
+* {
+    border: none;
+    font-family: "Jetbrains Nerd Font, FontAwesome & Free";
+    font-size: 13px;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+window#waybar {
+    background-color: transparent;
+    color: #ffffff;
+}
+
+window#waybar > box {
+    margin: 4px 4px 4px 4px;
+    padding: 4px;
+    box-shadow: 0px 0px 2px @color2;
+    background-color: @background;
+    border-radius: 4px;
+}
+
+button {
+    border: none;
+    border-radius: 0;
+}
+#workspaces button {
+    padding: 0 5px;
+    background-color: transparent;
+    color: @foreground;
+    border-radius: 4px;
+}
+
+#workspaces button:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#workspaces button.active {
+    background-color: @color2;
+    color: @background;
+}
+
+#workspaces button.urgent {
+    background-color: #eb4d4b;
+}
+
+#clock,
+#cpu,
+#memory,
+#disk,
+#network,
+#pulseaudio,
+#tray,
+#custom-power {
+    border-radius: 100px;
+    background-color: @background;
+    color: @foreground;
+    padding: 0 10px;
+    margin: 0 5px;
+    
+}
+
+#window {
+    margin: 0 5px;
+}
+#workspaces {
+    margin: 0 5px;
+}
+
+@keyframes blink-update {
+	to {
+		background-color: dodgerblue;
+	}
+}
+
+#custom-pacman {
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+#custom-pacman.pending-updates {
+	animation-name: blink-update;
+	animation-duration: 3s;
+}
+
+#pulseaudio {
+    color: @color13;
+}
+
+#network {
+    color: @color6;
+}
+
+#memory {
+    color: @color13;
+}
+
+#clock {
+    color: @color15;
+}
+
+#custom-notification {
+    color: @color8;
+}
+
+#custom-power {
+    color: @color1;
+}
+
+#window {
+    font-weight: bold;
+}

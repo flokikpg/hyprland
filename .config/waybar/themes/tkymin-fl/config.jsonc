@@ -1,0 +1,143 @@
+{
+    "layer": "top",
+    "position": "left",
+    "modules-left": [
+        "clock",
+        "group/misc"
+    ],
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+    "modules-right": [
+        "group/volume",
+        "network",
+        "memory",
+        "tray",
+        "custom/power"
+    ],
+    "pulseaudio/slider": {
+        "min": 0,
+        "max": 100,
+        "orientation": "vertical"
+    },
+    "group/volume": {
+        "orientation": "vertical",
+        "drawer": {
+            "transition-duration": 500,
+            "transition-top-to-bottom": true
+        },
+        "modules": [
+            "pulseaudio",
+            "pulseaudio/slider"
+        ]
+    },
+    "group/misc": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 500,
+            "children-class": "misc-modules",
+            "transition-top-to-bottom": false
+        },
+        "modules": [
+            "custom/separator",
+            "custom/notification",
+            "power-profiles-daemon"
+        ]
+    },
+    "custom/separator": {
+        "format": "__",
+        "tooltip": false
+    },
+    "hyprland/workspaces": {
+        "format": "{id}",
+        "on-click": "activate",
+        "on-scroll-down": "hyprctl dispatch workspace e+1",
+        "on-scroll-up": "hyprctl dispatch workspace e-1",
+        "cursor": "pointer"
+    },
+    "custom/notification": {
+        "escape": true,
+        "exec": "swaync-client -swb",
+        "exec-if": "which swaync-client",
+        "format": "{icon}",
+        "format-icons": {
+            "none": "  󰅺   ",
+            "notification": "  󰡟   "
+        },
+        "on-click": "sleep 0.1; swaync-client -t -sw",
+        "return-type": "json",
+        "tooltip": false
+    },
+    "pulseaudio": {
+        "format": "{icon}",
+        "format-bluetooth": "{}",
+        "format-muted": " 󰖁 ",
+        "scroll-step": 1,
+        "on-click": "pavucontrol",
+        "ignored-sinks": [
+            "Easy Effects Sink"
+        ],
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "phone-muted": "",
+            "portable": "",
+            "car": "",
+            "default": [
+                "",
+                "",
+                ""
+            ]
+        },
+        "tooltip-format": "Volume: {volume}%"
+    },
+    "network": {
+        "format-ethernet": "   ",
+        "format-wifi": "   ",
+        "format-disconnected": " 󰖪  ",
+        "tooltip-format": "Connected to {ipaddr}",
+        "tooltip-format-wifi": "Connected to {essid}",
+        "on-click": "hyprctl dispatch exec '[float]''kitty -e nmtui'",
+        "format-linked": "{ifname} (No IP) "
+    },
+    "memory": {
+        "format": "{}% ",
+        "on-click": "kitty -e btop"
+    },
+    "clock": {
+        "format": "{:%H\n%M}",
+        "interval": 1,
+        "tooltip-format": "<tt>{calendar}</tt>",
+        "calendar": {
+            "format": {
+                "today": "<span color='#fAfBfC'><b>{}</b></span>"
+            }
+        },
+        "actions": {
+            "on-click-right": "shift_down",
+            "on-click": "shift_up"
+        }
+    },
+    "tray": {
+        "icon-size": 21,
+        "spacing": 10
+    },
+    "power-profiles-daemon": {
+        "format": "{icon}",
+        "tooltip-format": "Power mode: {profile}",
+        "tooltip": true,
+        "format-icons": {
+            "default": "",
+            "performance": "",
+            "balanced": "",
+            "power-saver": ""
+        }
+    },
+    "custom/power": {
+        "format": "  ⏻  ",
+        "tooltip": false,
+        "on-click": "wlogout"
+    }
+}
