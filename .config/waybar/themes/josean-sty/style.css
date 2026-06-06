@@ -1,0 +1,147 @@
+@import "/home/floki/.config/waybar/colors/tokyo-night.css";
+
+* {
+	all: unset;
+	font-family: "SF Pro Display", "JetBrainsMono Nerd Font Propo";
+	font-size: 14px;
+	font-weight: bold;
+	min-height: 0;
+}
+
+window#waybar {
+	background-color: @bg0;
+	color: @fg;
+	min-height: 0;
+}
+
+#workspaces {
+    min-width: 100px;
+    font-size: 0.4rem;
+    padding: 2px 4px;
+    margin: 4px 0;
+    border-radius: 99px;
+}
+
+#workspaces button {
+    background-color: @bg2;
+    color: @fg0;
+    padding: 0px 5px;
+    border-radius: 99px;
+    margin:0px 2px;
+    min-width: 4px;
+	min-height: 0;
+}
+
+#workspaces button.active {
+    background-color: @aqua;
+	color: @bg0;
+    min-width: 1.4rem;
+    font-weight: 100;
+    transition: none;
+
+}
+
+#workspaces button.urgent {
+	background: @red;
+	color: @fg;
+}
+
+/* #workspaces button {
+	padding: 3px;
+	margin: 7px 0px 7px 7px;
+	background: transparent;
+	border-radius: 2px;
+	color: @fg;
+	transition: all 0.3s ease-in-out;
+}
+
+#workspaces button.active {
+	background: @aqua;
+	color: @bg0;
+	min-width: 10px;
+	font-weight: 700;
+	transition: all 0.3s ease-in-out;
+}
+
+#workspaces button:hover {
+	background-color: @purple;
+	color: @bg0;
+	min-width: 10px;
+	font-weight: 700;
+	background-size: 400% 400%;
+}
+
+#workspaces button.urgent {
+	background: @red;
+	color: @fg;
+} */
+
+#submap,
+#network,
+#cpu,
+#memory,
+#volume {
+	margin: 0px 15px;
+	font-weight: 700;
+	font-size: 1.00rem;
+	min-height: 0;
+}
+
+#pulseaudio-slider {
+	padding: 0px;
+	margin: 0px;
+	margin-left: 8px;
+}
+
+#pulseaudio-slider slider {
+	all: unset;
+	min-height: 0;
+	min-width: 0;
+	opacity: 0;
+	background-image: none;
+	border: none;
+	box-shadow: none;
+}
+
+#pulseaudio-slider trough {
+	min-height: 8px;
+	min-width: 75px;
+	border-radius: 5px;
+	background: @bg2;
+}
+
+#pulseaudio-slider highlight {
+	min-width: 10px;
+	border-radius: 5px;
+	background: @aqua;
+}
+
+#media {
+	color: @aqua;
+	margin: 7px 0px 7px 80px;
+}
+
+#custom-media-animation {
+	font-size: 13px;
+	margin-right: 10px;
+}
+
+#custom-media-now-playing {
+	margin-right: 10px;
+}
+
+#custom-media-time {
+	color: @bg3;
+	font-size: 14px;
+}
+
+tooltip {
+	background: @bg0;
+	border: 1px solid @blue;
+	border-radius: 5px;
+}
+
+tooltip label {
+	color: @fg;
+	padding: 6px;
+}

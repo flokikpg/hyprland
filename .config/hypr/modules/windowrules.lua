@@ -35,3 +35,16 @@ hl.window_rule({
 	match = { class = "^(zen)$" },
 	workspace = "1 silent"
 })
+
+hl.layer_rule({
+	name = "rofi-popup",
+	match = { namespace = "rofi" },
+	animation = "slide bottom",
+	dim_around = false
+})
+
+hl.layer_rule({
+	name = "notification-animations",
+	match = { namespace = "swaync-control-center" },
+	animation = "slide top"
+})

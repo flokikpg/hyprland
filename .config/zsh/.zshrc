@@ -109,3 +109,5 @@ function y() {
 	fi
 	rm -f -- "$tmp"
 }
+
+export TERM=xterm-256color

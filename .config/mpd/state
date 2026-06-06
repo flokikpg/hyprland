@@ -2,7 +2,7 @@ sw_volume: 100
 audio_device_state:1:PipeWire Sound Server
 state: pause
 current: 0
-time: 3.0380000000000003
+time: 44.997
 random: 0
 repeat: 0
 single: 0
