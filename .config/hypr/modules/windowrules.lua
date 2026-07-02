@@ -31,7 +31,7 @@ hl.window_rule({
 })
 
 hl.window_rule({
-	name = "zen-browser-ws1",
+	name = "zen-ws1",
 	match = { class = "^(zen)$" },
 	workspace = "1 silent"
 })
